@@ -1,0 +1,9 @@
+.col-md-2 {
+	height: 10em;
+	width: 10em;
+	background-color: blue;
+	color: black;
+	padding: 1em;
+	margin: 1em;
+	border-radius: 10px;
+}
