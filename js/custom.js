@@ -1,1 +1,1 @@
-this is custom js
+alert("Hi, it works!");
