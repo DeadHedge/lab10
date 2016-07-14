@@ -115,5 +115,5 @@ function onSubmit() {
   //set taken to true
   seatObject.taken = true;
   console.log(seatObject.taken);
+  console.log(seatArray);
 }
-console.log(seatArray[7]);
