@@ -70,20 +70,20 @@ for (var i = 0; i < 24 ; i++){
 
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
 
 
-  $("#form").hide();
+//   $("#form").hide();
 
-  $(".col-md-2")on("click", function() {
-    $("#form").show();
-
-
-});
+//   $(".col-md-2").on("click", function() {
+//     $("#form").show();
 
 
-});
+// });
+
+
+// });
 
 
 function onSubmit() {
