@@ -74,7 +74,13 @@ $(document).ready(function(){
 
 
 
-  $("form").width(500);
+  $("#form").hide();
+
+  $(".col-md-2")on("click", function() {
+    $("#form").show();
+
+
+});
 
 
 });
