@@ -20,7 +20,7 @@
 // 	seat1.firstName = John
 // };
 // var arr = [];
-// arr[textAreaseatnum.value].firstName = 
+// arr[textAreaseatnum.value].firstName =
 
 //  textArea.value
 // 	for(var i = 0; i < 24 ; i++) {
@@ -42,7 +42,6 @@ function GridItem (userName, seatNum, dateRes) {
   this.userName = userName;
   this.seatNum = seatNum;
   this.dateRes = dateRes;
-  this.arrPush =
 }
 //create a grid box
 function makeGridEl() {
@@ -66,26 +65,37 @@ seatArray = [];
 
 for (var i = 0; i < 24 ; i++){
   var newSeat = new Seat();
-  seatArray.push();
+  seatArray.push(newSeat);
 }
 
 function onSubmit() {
+  // console.log("checking event listener");
   //get seat number
-  var seatNum = document.getElementById('seatNum');
-  var firstName = document.getElementById('firstName');
-  var lastName = document.getElementById('lastName');
-  var email = document.getElementById('email');
+  var $seatNum = $('#selectedSeat');
+  console.log($seatNum);
+  var $firstName = $('#firstName');
+  var $lastName = $('#lastName');
+  var $email = $('#email');
 
   //find object based on seat number
-  var seatObject = arr[seatNum.value - 1];
+  console.log(seatArray);
+  var seatObject = seatArray[$seatNum.val() - 1];
+  console.log(seatObject.taken);
+  if (seatObject.taken === true) {
+    console.log("You too late!!");
+    return;
+  }
+  console.log($seatNum.val());
+  console.log(seatObject);
 
   // if seat taken = false, send error message
 
   // set object properties to equal other form values
-  seatObject.firstName = firstName.value;
-  seatObject.lastName = lastName.value;
-  seatObject.email = email.value;
+  seatObject.firstName = $firstName.val();
+  seatObject.lastName = $lastName.val();
+  seatObject.email = $email.val();
   //set taken to true
   seatObject.taken = true;
+  console.log(seatObject.taken);
 }
-
+console.log(seatArray[7]);
