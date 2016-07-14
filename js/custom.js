@@ -78,6 +78,7 @@ $(document).ready(function(){
     $("#form").show();
   });
 
+});
 
 //Seat constructor function
 function Seat() {
@@ -126,5 +127,3 @@ function onSubmit() {
   console.log(seatObject.taken);
   console.log(seatArray);
 }
-
-});
