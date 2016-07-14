@@ -79,7 +79,7 @@ $(document).ready(function(){
   });
 
 
-//Seat
+//Seat constructor function
 function Seat() {
   this.taken = false;
 }
