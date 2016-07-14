@@ -1,0 +1,41 @@
+@media(max-width:980px) {
+	.col-md-2 {
+		height:90px;
+		width:90px;
+		display:inline-block;
+	}
+	p {
+		font-size:2em;
+	}
+@media(max-width:730px) {
+	.col-md-2 {
+		height:70px;
+		width:70px;
+		display:inline-block;
+	}
+	p {
+		font-size:2em;
+	}
+@media(max-width:620px) {
+	.col-md-2 {
+		height:60px;
+		width:60px;
+		display:inline-block;
+		padding:10px;
+		margin:7px;
+	}
+	p {
+		font-size:20px;
+	}
+@media(max-width:464px) {
+	.col-md-2 {
+		height:50px;
+		width:49px;
+		display:inline-block;
+		padding:10px;
+		margin:7px;
+	}
+	p {
+		font-size:20px;
+	}
+}
