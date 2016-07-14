@@ -71,15 +71,14 @@ $(document).ready(function(){
 
   $(".col-md-2").on("click", function() {
     $("#form").show();
+  });
 
 
-});
-
-
-
+//Seat
 function Seat() {
   this.taken = false;
 }
+
 seatArray = [];
 
 for (var i = 0; i < 24 ; i++){
@@ -100,6 +99,7 @@ function onSubmit() {
   console.log(seatArray);
   var seatObject = seatArray[$seatNum.val() - 1];
   console.log(seatObject.taken);
+  //check if seat is taken
   if (seatObject.taken === true) {
     console.log("You too late!!");
     return;
