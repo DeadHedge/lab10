@@ -70,9 +70,8 @@ for (var i = 0; i < 24 ; i++){
 
 
 
+
 $(document).ready(function(){
-
-
 
   $("#form").hide();
 
@@ -82,7 +81,6 @@ $(document).ready(function(){
   $($seats).on("click", function() {
     $("#form").show();
   });
-
 
 });
 
@@ -118,3 +116,4 @@ function onSubmit() {
   console.log(seatObject.taken);
   console.log(seatArray);
 }
+
