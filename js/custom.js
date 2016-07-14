@@ -1,4 +1,5 @@
 
+$(document).ready(function(){
 // var submit = function() {
 // 	var firsName =document.getElementById("firstName");
 // 	var lastName = document.getElementById("lastName");
@@ -38,25 +39,43 @@
 
 
 //Create grid object to store grid info
-function GridItem (userName, seatNum, dateRes) {
-  this.userName = userName;
-  this.seatNum = seatNum;
-  this.dateRes = dateRes;
-}
-//create a grid box
-function makeGridEl() {
-  var grid = document.createElement("div");
+// function GridItem (userName, seatNum, dateRes) {
+//   this.userName = userName;
+//   this.seatNum = seatNum;
+//   this.dateRes = dateRes;
+// }
+// //create a grid box
+// function makeGridEl() {
+//   var grid = document.createElement("div");
+//
+// }
+//
+// //make the grid out of grid box elements
+// function makeGrid(x, y) {
+//   for (var i = 0; i < x; i++) {
+//     for (var j = 0; j < y; j++) {
+//
+//     }
+//   }
+// }
 
-}
 
-//make the grid out of grid box elements
-function makeGrid(x, y) {
-  for (var i = 0; i < x; i++) {
-    for (var j = 0; j < y; j++) {
 
-    }
-  }
-}
+
+
+
+
+
+
+  $("#form").hide();
+
+  $(".col-md-2").on("click", function() {
+    $("#form").show();
+
+
+});
+
+
 
 function Seat() {
   this.taken = false;
@@ -67,24 +86,6 @@ for (var i = 0; i < 24 ; i++){
   var newSeat = new Seat();
   seatArray.push(newSeat);
 }
-
-
-
-$(document).ready(function(){
-
-
-
-  $("#form").hide();
-
-  $(".col-md-2")on("click", function() {
-    $("#form").show();
-
-
-});
-
-
-});
-
 
 function onSubmit() {
   // console.log("checking event listener");
@@ -117,3 +118,5 @@ function onSubmit() {
   console.log(seatObject.taken);
   console.log(seatArray);
 }
+
+});
