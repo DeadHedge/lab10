@@ -1,7 +1,7 @@
 	var gulp = require('gulp');
 	var browserSync = require('browser-sync');
 	var concat = require('gulp-concat');
-	var jshint = require('gulp-jshint');
+	
 
 	gulp.task('default', function() {
 		console.log("is this the real life?")
