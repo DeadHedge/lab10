@@ -69,6 +69,18 @@ for (var i = 0; i < 24 ; i++){
   seatArray.push();
 }
 
+
+
+$(document).ready(function(){
+
+
+
+  $("form").width(500);
+
+
+});
+
+
 function onSubmit() {
   //get seat number
   var seatNum = document.getElementById('seatNum');
