@@ -76,11 +76,12 @@ $(document).ready(function(){
 
   $("#form").hide();
 
-  $(".col-md-2")on("click", function() {
+  // $(".col-md-2")on("click", function() {
+  //   $("#form").show();
+  var $seats = $(".col-md-2");
+  $($seats).on("click", function() {
     $("#form").show();
-
-
-});
+  });
 
 
 });
