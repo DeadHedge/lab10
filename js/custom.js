@@ -1,97 +1,59 @@
 
 $(document).ready(function(){
-// var submit = function() {
-// 	var firsName =document.getElementById("firstName");
-// 	var lastName = document.getElementById("lastName");
-// 	var date = document.getElementById("date");
-// 	var email = document.getElementById("email");
-// 	var seat = document.getElementById("selectedSeat");
-// };
+
+var $seats = $(".seat");
+var $form = $("#form");
+
+$form.hide();
+
+$($seats).hover(function() {
+  $(this).fadeTo("fast", 0.8);
+},
+  function() {
+  $(this).fadeTo("fast",1);
+}
+);
+
+var $header = $("#header");
+$header.hover(function() {
+  $(this).animate({
+    fontSize: "80px"}, 1500)
+})
+
+var $pokemonChar = $(".pokemonChar");
+$pokemonChar.click(function() {
+  $(this).animate({
+    width: "100%",
+    height:"100%"
+  });
+});
 
 
-
-// function Seat(seatNum, firstName, lastName, date, email) {
-// 	this.seatNum = seatNum;
-// 	this.firstName = firstName;
-// 	this.lastName = lastName;
-// }
-// console.log(submit);
-
-// var seat1 = new Seat(John, beckius, 9, @hotmail) {
-// 	seat1.firstName = John
-// };
-// var arr = [];
-// arr[textAreaseatnum.value].firstName =
-
-//  textArea.value
-// 	for(var i = 0; i < 24 ; i++) {
-// 		var newSeat = new Seat(i);
-// 		arr.push(newSeat);
-// 	}
-
-
-// seat1 = {
-// 	firstName: John,
-// 	lastName: beckius,
-// 	date: 9,
-// 	email: @hotmail
-// }
-
-
-//Create grid object to store grid info
-// function GridItem (userName, seatNum, dateRes) {
-//   this.userName = userName;
-//   this.seatNum = seatNum;
-//   this.dateRes = dateRes;
-// }
-// //create a grid box
-// function makeGridEl() {
-//   var grid = document.createElement("div");
-//
-// }
-//
-// //make the grid out of grid box elements
-// function makeGrid(x, y) {
-//   for (var i = 0; i < x; i++) {
-//     for (var j = 0; j < y; j++) {
-//
-//     }
-//   }
-// }
-
-
-
-
-
-
-
-
-
-  $("#form").hide();
   var $seats = $(".seat");
-  $($seats).on("click", function() {
-    $("#form").show();
-    $(this).fadeTo("fast",0.2);
-
-    $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
-      $(this).fadeTo("fast",1);
-    });
-    });
-
+  $form.hide();
+  //sets up opacity response on hover
+  $($seats).hover(function() {
+    $(this).fadeTo("fast", 0.8);
+  },
+    function() {
+    $(this).fadeTo("fast",1);
+  });
 
 
 });
 
 //Seat constructor function
 function Seat(id) {
-  this.taken = false;
+  this.reserved = false;
   this.id = id;
   this.selected = false;
 }
 
+//initializes seatArray var and sets it to an empty array
 seatArray = [];
-seatsSelected = [];
 
+//Creates 24 Seat objects using the Seat constructor
+//Pushes those objects to seatArray
 for (var i = 0; i < 24 ; i++){
   var newSeat = new Seat(i + 1);
   seatArray.push(newSeat);
@@ -99,29 +61,34 @@ for (var i = 0; i < 24 ; i++){
 
 // add event listener for all grid elements
 $('.seat').on("click", function() {
+  var $form = $("#form");
+  $($form).show();
   var $id = $(this).siblings('p').text();
-  var id = parseInt($id);
-  if(seatArray[id - 1].taken === true) {
-    console.log("That seat is taken!");
+  var id = parseInt($(this).attr('id'));
+  var arrPos = id -1;
+  //Checks if seat is reserved before making changes
+  if(seatArray[arrPos].reserved === true) {
     return;
   }
-  if(seatArray[id - 1].selected === true) {
-    seatArray[id - 1].selected = false
-  } else {seatArray[id - 1].selected = true}
+  //Checks if seat selected is true. If not, sets true.
+  //If already true, sets false. Changes img to indicate selection.
+  if(seatArray[arrPos].selected === true) {
+    seatArray[arrPos].selected = false;
+    this.setAttribute("src", "images/seat.jpg");
+  } else {
+    seatArray[arrPos].selected = true;
+    this.setAttribute("src", "images/green_selected.jpg");
+  }
   var seatListContent = "";
   seatArray.forEach(function(each) {
+    //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
-      console.log("seat list" + each.id.toString());
       seatListContent += (each.id.toString() + " ");
-      console.log(seatListContent);
     }
-  })
-  $('#seatList').text(seatListContent)
 
-  console.log(seatArray[id - 1].selected);
 
-  console.log(typeof(id));
-  console.log(id);
+  });
+  $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
 
 
 });
@@ -133,48 +100,28 @@ $('.seat').on("click", function() {
 //return an array of integers
 
 function onSubmit() {
-  // console.log("checking event listener");
-
   // on submit
-  // check each object for selected === true
 
   // if selected === true, set seat as reserved and save user info
-
-
-
-  //get seat number
   var $seatNum = $('#selectedSeat');
-  console.log($seatNum);
   var $firstName = $('#firstName');
   var $lastName = $('#lastName');
   var $email = $('#email');
 
   seatArray.forEach(function (each) {
+    //Store the purchaser's information in the objects
+    //attached to the selected seats
     if(each.selected === true) {
-      console.log(each.id + " is selected.");
       each.firstName = $firstName.val();
       each.lastName = $lastName.val();
       each.email = $email.val();
-      //set taken to true
-      each.taken = true;
+      //Reserves seat to prevent future purchase
+      each.reserved = true;
+      var elId = (each.id).toString();
+      var el = document.getElementById(elId)
+      el.setAttribute("src", "images/seatX.jpg");
+      each.selected = false;
     }
-    console.log(each);
-    })
-  //find object based on seat number
-  console.log(seatArray);
-  var seatObject = seatArray[$seatNum.val() - 1];
-  console.log(seatObject.taken);
-  //check if seat is taken. If so, send message.
-  // if (seatObject.taken === true) {
-  //   console.log("You too late!!");
-  //   return;
-  // }
-  console.log($seatNum.val());
-  console.log(seatObject);
-
-
-  // set object properties to equal other form values
-
-  console.log(seatObject.taken);
-  console.log(seatArray);
+  });
+  $('#seatList').text("")
 }
