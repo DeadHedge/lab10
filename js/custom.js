@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-<<<<<<< HEAD
+
 // var submit = function() {
 // 	var firsName =document.getElementById("firstName");
 // 	var lastName = document.getElementById("lastName");
@@ -122,17 +122,6 @@ $pokemonChar.click(function() {
 
 
 
-=======
-  var $seats = $(".seat");
-  $form.hide();
-  //sets up opacity response on hover
-  $($seats).hover(function() {
-    $(this).fadeTo("fast", 0.8);
-  },
-    function() {
-    $(this).fadeTo("fast",1);
-  });
->>>>>>> e85d806a21f466933064c741dfbcd1e086f922e5
 });
 
 //Seat constructor function
@@ -177,7 +166,7 @@ $('.seat').on("click", function() {
     if (each.selected === true) {
       seatListContent += (each.id.toString() + " ");
     }
-<<<<<<< HEAD
+
   })
   $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
 
@@ -187,10 +176,7 @@ $('.seat').on("click", function() {
   console.log(id);
 
 
-=======
-  });
-  $('#seatList').text("Seats selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
->>>>>>> e85d806a21f466933064c741dfbcd1e086f922e5
+
 });
 
 
