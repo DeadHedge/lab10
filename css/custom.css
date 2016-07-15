@@ -44,3 +44,19 @@
      1px 1px 0 #00F;
 	font-weight: bolder;
 }
+
+footer
+{
+	margin: 20px;
+}
+footer li
+{
+		display: inline;
+		padding: 20px;
+		color: blue;
+}
+
+footer ul
+{
+	text-align: center;
+}
