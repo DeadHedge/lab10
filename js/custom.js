@@ -67,7 +67,7 @@ $seats.click(function() {
   $($form).show();
   if($(this).attr("src") === "images/seat.jpg") {
     this.setAttribute("src", "images/green_selected.jpg");
-  } else {
+  } else if ($(this).attr("src") === "images/green_selected.jpg"){
     this.setAttribute("src", "images/seat.jpg");
   };
 });
