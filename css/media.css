@@ -17,11 +17,10 @@
 	height: 100%;
 }
 }
-@media(max-width:980px) {
+@media(max-width:993px) {
 	.col-md-2 {
 		height:90px;
 		width:90px;
-		display:inline-block;
 	}
 	
 	.col-md-2 p {
