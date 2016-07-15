@@ -66,9 +66,9 @@ $form.hide();
 $seats.click(function() {
   $($form).show();
   if($(this).attr("src") === "images/seat.jpg") {
-    this.src = this.src.replace("images/seat.jpg","images/seatX.jpg");
+    this.setAttribute("src", "images/seatX.jpg");
   } else {
-    this.src = this.src.replace("images/seatX.jpg", "images/seat.jpg");
+    this.setAttribute("src", "images/seat.jpg");
   };
 });
 
@@ -86,9 +86,9 @@ $($seats).hover(function() {
 
 
 // $($navigation).hover(function() {
-//     $(this).fadeTo("fast", 0.25); 
+//     $(this).fadeTo("fast", 0.25);
 //       }, function() {
-//     $(this).fadeTo("fast", 1); 
+//     $(this).fadeTo("fast", 1);
 //       }
 //       );
 
@@ -132,6 +132,7 @@ $('.seat').on("click", function() {
     console.log("That seat is taken!");
     return;
   }
+  //Checks if seat is selected. If not, select. If so, unselect.
   if(seatArray[id - 1].selected === true) {
     seatArray[id - 1].selected = false
   } else {seatArray[id - 1].selected = true}
