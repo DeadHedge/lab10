@@ -52,12 +52,44 @@ function Seat(id) {
 //initializes seatArray var and sets it to an empty array
 seatArray = [];
 
+//*******NEW CODE************
+function makeGrid(x, y) {
+
+  for(var i = 0; i < x ; i++) {
+    var $container = $('#gridContainer')
+    var $row = $(document.createElement('div'));
+    $row.addClass('row');
+    $container.append($row);
+    for(var j = 0; j < y; j++) {
+      //select row
+      var $div = $(document.createElement('div'));
+      $div.addClass('col-md-2');
+      var $p = $(document.createElement('p'));
+      $p.text((i * y + j + 1).toString());
+      var $img = $(document.createElement('img'));
+      $img.addClass('seat').attr('id', ((i * y + j + 1).toString())).attr("src", "images/seat.jpg");
+      $div.append($p);
+      $div.append($img);
+      $row.append($div);
+
+      var newSeat = new Seat(i * y + j + 1);
+      seatArray.push(newSeat);
+
+      //if i = 0 and j = 1, id = 1
+      //if i = 1 and j = 1, id = 9
+      //if i = 2 and j = 1, id = 17
+      //i*y + j
+    }
+  }
+}
+makeGrid(5, 7);
+//**********END NEW CODE***********
+
+
+
 //Creates 24 Seat objects using the Seat constructor
 //Pushes those objects to seatArray
-for (var i = 0; i < 24 ; i++){
-  var newSeat = new Seat(i + 1);
-  seatArray.push(newSeat);
-}
+
 
 // add event listener for all grid elements
 $('.seat').on("click", function() {
