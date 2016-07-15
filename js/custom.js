@@ -66,7 +66,7 @@ $form.hide();
 $seats.click(function() {
   $($form).show();
   if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/seatX.jpg");
+    this.setAttribute("src", "images/green_selected.jpg");
   } else {
     this.setAttribute("src", "images/seat.jpg");
   };
@@ -90,8 +90,7 @@ $($seats).hover(function() {
 //       }, function() {
 //     $(this).fadeTo("fast", 1);
 //       }
-//       );
-
+//       );8
 
 
   // $("#form").hide();
@@ -99,6 +98,7 @@ $($seats).hover(function() {
   // $($seats).on("click", function() {
   //   $("#form").show();
   //   $(this).fadeTo("fast",0.2);
+
 
   //   $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
   //     $(this).fadeTo("fast",1);
