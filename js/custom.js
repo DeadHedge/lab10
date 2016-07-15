@@ -144,7 +144,7 @@ $('.seat').on("click", function() {
       console.log(seatListContent);
     }
   })
-  $('#seatList').text(seatListContent)
+  $('#seatList').text("Seat selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
 
   console.log(seatArray[id - 1].selected);
 
