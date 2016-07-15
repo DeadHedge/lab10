@@ -120,6 +120,7 @@ function onSubmit() {
       var elId = (each.id).toString();
       var el = document.getElementById(elId)
       el.setAttribute("src", "images/seatX.jpg");
+      each.selected = false;
     }
   });
   $('#seatList').text("")
