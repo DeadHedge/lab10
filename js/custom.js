@@ -29,16 +29,7 @@ $pokemonChar.click(function() {
 });
 
 
-  var $seats = $(".seat");
-  $form.hide();
-  //sets up opacity response on hover
-  $($seats).hover(function() {
-    $(this).fadeTo("fast", 0.8);
-  },
-    function() {
-    $(this).fadeTo("fast",1);
-  });
-
+  
 
 });
 
@@ -111,7 +102,9 @@ $('.seat').on("click", function() {
     seatArray[arrPos].selected = true;
     this.setAttribute("src", "images/green_selected.jpg");
   }
+
   var seatListContent = "";
+
   seatArray.forEach(function(each) {
     //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
