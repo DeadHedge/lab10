@@ -66,8 +66,8 @@ $form.hide();
 $seats.click(function() {
   $($form).show();
   if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/seatX.jpg");
-  } else {
+    this.setAttribute("src", "images/green_selected.jpg");
+  } else if ($(this).attr("src") === "images/green_selected.jpg"){
     this.setAttribute("src", "images/seat.jpg");
   };
 });
@@ -90,8 +90,7 @@ $($seats).hover(function() {
 //       }, function() {
 //     $(this).fadeTo("fast", 1);
 //       }
-//       );
-
+//       );8
 
 
   // $("#form").hide();
@@ -99,6 +98,7 @@ $($seats).hover(function() {
   // $($seats).on("click", function() {
   //   $("#form").show();
   //   $(this).fadeTo("fast",0.2);
+
 
   //   $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
   //     $(this).fadeTo("fast",1);
@@ -111,7 +111,7 @@ $($seats).hover(function() {
 
 //Seat constructor function
 function Seat(id) {
-  this.taken = false;
+  this.reserved = false;
   this.id = id;
   this.selected = false;
 }
@@ -128,8 +128,8 @@ for (var i = 0; i < 24 ; i++){
 $('.seat').on("click", function() {
   var $id = $(this).siblings('p').text();
   var id = parseInt($id);
-  if(seatArray[id - 1].taken === true) {
-    console.log("That seat is taken!");
+  if(seatArray[id - 1].reserved === true) {
+    console.log("That seat is reserved!");
     return;
   }
   //Checks if seat is selected. If not, select. If so, unselect.
@@ -183,17 +183,22 @@ function onSubmit() {
       each.firstName = $firstName.val();
       each.lastName = $lastName.val();
       each.email = $email.val();
-      //set taken to true
-      each.taken = true;
+      //set reserved to true
+      each.reserved = true;
+      var elId = (each.id).toString();
+      console.log(elId);
+      console.log(typeof(elId));
+      var el = document.getElementById(elId)
+      el.setAttribute("src", "images/seatX.jpg");
     }
     console.log(each);
     })
   //find object based on seat number
   console.log(seatArray);
   var seatObject = seatArray[$seatNum.val() - 1];
-  console.log(seatObject.taken);
-  //check if seat is taken. If so, send message.
-  // if (seatObject.taken === true) {
+  console.log(seatObject.reserved);
+  //check if seat is reserved. If so, send message.
+  // if (seatObject.reserved === true) {
   //   console.log("You too late!!");
   //   return;
   // }
@@ -203,6 +208,6 @@ function onSubmit() {
 
   // set object properties to equal other form values
 
-  console.log(seatObject.taken);
+  console.log(seatObject.reserved);
   console.log(seatArray);
 }
