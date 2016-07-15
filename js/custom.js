@@ -29,7 +29,7 @@ $pokemonChar.click(function() {
 });
 
 
-  
+
 
 });
 
@@ -45,7 +45,8 @@ seatArray = [];
 
 //*******NEW CODE************
 function makeGrid(x, y) {
-
+  //Takes an x(# of rows) and y(seats per row)
+  //sets the seat grid using these inputs
   for(var i = 0; i < x ; i++) {
     var $container = $('#gridContainer')
     var $row = $(document.createElement('div'));
@@ -55,6 +56,7 @@ function makeGrid(x, y) {
       //select row
       var $div = $(document.createElement('div'));
       $div.addClass('col-md-2');
+      $div.width((100/ (Math.pow(y, 1.25))) + "%").height();
       var $p = $(document.createElement('p'));
       $p.text((i * y + j + 1).toString());
       var $img = $(document.createElement('img'));
@@ -65,15 +67,11 @@ function makeGrid(x, y) {
 
       var newSeat = new Seat(i * y + j + 1);
       seatArray.push(newSeat);
-
-      //if i = 0 and j = 1, id = 1
-      //if i = 1 and j = 1, id = 9
-      //if i = 2 and j = 1, id = 17
-      //i*y + j
     }
   }
 }
-makeGrid(5, 7);
+// Sets up a 5 x 7 seat layout
+makeGrid(5, 5);
 //**********END NEW CODE***********
 
 
