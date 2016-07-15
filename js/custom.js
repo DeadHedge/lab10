@@ -66,7 +66,7 @@ $form.hide();
 $seats.click(function() {
   $($form).show();
   if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/seatX.jpg");
+    this.setAttribute("src", "images/green_selected.jpg");
   } else {
     this.setAttribute("src", "images/seat.jpg");
   };
@@ -90,7 +90,7 @@ $($seats).hover(function() {
 //       }, function() {
 //     $(this).fadeTo("fast", 1);
 //       }
-//       );
+//       );8
 
 
   // $("#form").hide();
