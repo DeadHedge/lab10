@@ -66,7 +66,6 @@ $(document).ready(function(){
 
 
 
-
   $("#form").hide();
   var $seats = $(".seat");
   $($seats).on("click", function() {
