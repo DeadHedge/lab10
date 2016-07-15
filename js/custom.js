@@ -1,80 +1,10 @@
 
 $(document).ready(function(){
 
-// var submit = function() {
-// 	var firsName =document.getElementById("firstName");
-// 	var lastName = document.getElementById("lastName");
-// 	var date = document.getElementById("date");
-// 	var email = document.getElementById("email");
-// 	var seat = document.getElementById("selectedSeat");
-// };
-
-
-
-// function Seat(seatNum, firstName, lastName, date, email) {
-// 	this.seatNum = seatNum;
-// 	this.firstName = firstName;
-// 	this.lastName = lastName;
-// }
-// console.log(submit);
-
-// var seat1 = new Seat(John, beckius, 9, @hotmail) {
-// 	seat1.firstName = John
-// };
-// var arr = [];
-// arr[textAreaseatnum.value].firstName =
-
-//  textArea.value
-// 	for(var i = 0; i < 24 ; i++) {
-// 		var newSeat = new Seat(i);
-// 		arr.push(newSeat);
-// 	}
-
-
-// seat1 = {
-// 	firstName: John,
-// 	lastName: beckius,
-// 	date: 9,
-// 	email: @hotmail
-// }
-
-
-//Create grid object to store grid info
-// function GridItem (userName, seatNum, dateRes) {
-//   this.userName = userName;
-//   this.seatNum = seatNum;
-//   this.dateRes = dateRes;
-// }
-// //create a grid box
-// function makeGridEl() {
-//   var grid = document.createElement("div");
-//
-// }
-//
-// //make the grid out of grid box elements
-// function makeGrid(x, y) {
-//   for (var i = 0; i < x; i++) {
-//     for (var j = 0; j < y; j++) {
-//
-//     }
-//   }
-// }
-
 var $seats = $(".seat");
 var $form = $("#form");
 
 $form.hide();
-$seats.click(function() {
-  $($form).show();
-  if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/green_selected.jpg");
-  } else if ($(this).attr("src") === "images/green_selected.jpg"){
-    this.setAttribute("src", "images/seat.jpg");
-  };
-});
-
-
-
 
 $($seats).hover(function() {
   $(this).fadeTo("fast", 0.8);
@@ -99,27 +29,15 @@ $pokemonChar.click(function() {
 });
 
 
-
-// $($navigation).hover(function() {
-//     $(this).fadeTo("fast", 0.25);
-//       }, function() {
-//     $(this).fadeTo("fast", 1);
-//       }
-//       );8
-
-
-  // $("#form").hide();
-  // var $seats = $(".seat");
-  // $($seats).on("click", function() {
-  //   $("#form").show();
-  //   $(this).fadeTo("fast",0.2);
-
-
-  //   $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
-  //     $(this).fadeTo("fast",1);
-  //   });
-  //   });
-
+  var $seats = $(".seat");
+  $form.hide();
+  //sets up opacity response on hover
+  $($seats).hover(function() {
+    $(this).fadeTo("fast", 0.8);
+  },
+    function() {
+    $(this).fadeTo("fast",1);
+  });
 
 
 });
@@ -155,27 +73,26 @@ $('.seat').on("click", function() {
   //Checks if seat selected is true. If not, sets true.
   //If already true, sets false. Changes img to indicate selection.
   if(seatArray[arrPos].selected === true) {
-    seatArray[arrPos].selected = false
+    seatArray[arrPos].selected = false;
     this.setAttribute("src", "images/seat.jpg");
   } else {
     seatArray[arrPos].selected = true;
     this.setAttribute("src", "images/green_selected.jpg");
   }
+<<<<<<< HEAD
   var seatListContent=" ";
+=======
+  var seatListContent = "";
+>>>>>>> 20365d0b5677dfdf28f81962f66a898c57cf569f
   seatArray.forEach(function(each) {
     //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
       seatListContent += (each.id.toString() + " ");
     }
 
-  })
+
+  });
   $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
-
-  console.log(seatArray[id - 1].selected);
-
-  console.log(typeof(id));
-  console.log(id);
-
 
 
 });
@@ -207,6 +124,8 @@ function onSubmit() {
       var elId = (each.id).toString();
       var el = document.getElementById(elId)
       el.setAttribute("src", "images/seatX.jpg");
+      each.selected = false;
     }
   });
+  $('#seatList').text("")
 }
