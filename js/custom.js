@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+<<<<<<< HEAD
 // var submit = function() {
 // 	var firsName =document.getElementById("firstName");
 // 	var lastName = document.getElementById("lastName");
@@ -121,6 +122,17 @@ $pokemonChar.click(function() {
 
 
 
+=======
+  var $seats = $(".seat");
+  $form.hide();
+  //sets up opacity response on hover
+  $($seats).hover(function() {
+    $(this).fadeTo("fast", 0.8);
+  },
+    function() {
+    $(this).fadeTo("fast",1);
+  });
+>>>>>>> e85d806a21f466933064c741dfbcd1e086f922e5
 });
 
 //Seat constructor function
@@ -130,9 +142,11 @@ function Seat(id) {
   this.selected = false;
 }
 
+//initializes seatArray var and sets it to an empty array
 seatArray = [];
-seatsSelected = [];
 
+//Creates 24 Seat objects using the Seat constructor
+//Pushes those objects to seatArray
 for (var i = 0; i < 24 ; i++){
   var newSeat = new Seat(i + 1);
   seatArray.push(newSeat);
@@ -140,23 +154,30 @@ for (var i = 0; i < 24 ; i++){
 
 // add event listener for all grid elements
 $('.seat').on("click", function() {
+  var $form = $("#form");
+  $($form).show();
   var $id = $(this).siblings('p').text();
-  var id = parseInt($id);
-  if(seatArray[id - 1].reserved === true) {
-    console.log("That seat is reserved!");
+  var id = parseInt($(this).attr('id'));
+  var arrPos = id -1;
+  //Checks if seat is reserved before making changes
+  if(seatArray[arrPos].reserved === true) {
     return;
   }
-  //Checks if seat is selected. If not, select. If so, unselect.
-  if(seatArray[id - 1].selected === true) {
-    seatArray[id - 1].selected = false
-  } else {seatArray[id - 1].selected = true}
-  var seatListContent = "";
+  //Checks if seat selected is true. If not, sets true.
+  //If already true, sets false. Changes img to indicate selection.
+  if(seatArray[arrPos].selected === true) {
+    seatArray[arrPos].selected = false
+    this.setAttribute("src", "images/seat.jpg");
+  } else {
+    seatArray[arrPos].selected = true;
+    this.setAttribute("src", "images/green_selected.jpg");
+  }
   seatArray.forEach(function(each) {
+    //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
-      console.log("seat list" + each.id.toString());
       seatListContent += (each.id.toString() + " ");
-      console.log(seatListContent);
     }
+<<<<<<< HEAD
   })
   $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
 
@@ -166,6 +187,10 @@ $('.seat').on("click", function() {
   console.log(id);
 
 
+=======
+  });
+  $('#seatList').text("Seats selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
+>>>>>>> e85d806a21f466933064c741dfbcd1e086f922e5
 });
 
 
@@ -175,53 +200,26 @@ $('.seat').on("click", function() {
 //return an array of integers
 
 function onSubmit() {
-  // console.log("checking event listener");
-
   // on submit
-  // check each object for selected === true
 
   // if selected === true, set seat as reserved and save user info
-
-
-
-  //get seat number
   var $seatNum = $('#selectedSeat');
-  console.log($seatNum);
   var $firstName = $('#firstName');
   var $lastName = $('#lastName');
   var $email = $('#email');
 
   seatArray.forEach(function (each) {
+    //Store the purchaser's information in the objects
+    //attached to the selected seats
     if(each.selected === true) {
-      console.log(each.id + " is selected.");
       each.firstName = $firstName.val();
       each.lastName = $lastName.val();
       each.email = $email.val();
-      //set reserved to true
+      //Reserves seat to prevent future purchase
       each.reserved = true;
       var elId = (each.id).toString();
-      console.log(elId);
-      console.log(typeof(elId));
       var el = document.getElementById(elId)
       el.setAttribute("src", "images/seatX.jpg");
     }
-    console.log(each);
-    })
-  //find object based on seat number
-  console.log(seatArray);
-  var seatObject = seatArray[$seatNum.val() - 1];
-  console.log(seatObject.reserved);
-  //check if seat is reserved. If so, send message.
-  // if (seatObject.reserved === true) {
-  //   console.log("You too late!!");
-  //   return;
-  // }
-  console.log($seatNum.val());
-  console.log(seatObject);
-
-
-  // set object properties to equal other form values
-
-  console.log(seatObject.reserved);
-  console.log(seatArray);
+  });
 }
