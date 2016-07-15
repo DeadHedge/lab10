@@ -29,16 +29,7 @@ $pokemonChar.click(function() {
 });
 
 
-  var $seats = $(".seat");
-  $form.hide();
-  //sets up opacity response on hover
-  $($seats).hover(function() {
-    $(this).fadeTo("fast", 0.8);
-  },
-    function() {
-    $(this).fadeTo("fast",1);
-  });
-
+  
 
 });
 
