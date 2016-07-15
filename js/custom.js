@@ -5,17 +5,6 @@ var $seats = $(".seat");
 var $form = $("#form");
 
 $form.hide();
-$seats.click(function() {
-  $($form).show();
-  if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/green_selected.jpg");
-  } else if ($(this).attr("src") === "images/green_selected.jpg"){
-    this.setAttribute("src", "images/seat.jpg");
-  };
-});
-
-
-
 
 $($seats).hover(function() {
   $(this).fadeTo("fast", 0.8);
@@ -39,6 +28,7 @@ $pokemonChar.click(function() {
   });
 });
 
+
   var $seats = $(".seat");
   $form.hide();
   //sets up opacity response on hover
@@ -48,6 +38,7 @@ $pokemonChar.click(function() {
     function() {
     $(this).fadeTo("fast",1);
   });
+
 
 });
 
@@ -82,20 +73,24 @@ $('.seat').on("click", function() {
   //Checks if seat selected is true. If not, sets true.
   //If already true, sets false. Changes img to indicate selection.
   if(seatArray[arrPos].selected === true) {
-    seatArray[arrPos].selected = false
+    seatArray[arrPos].selected = false;
     this.setAttribute("src", "images/seat.jpg");
   } else {
     seatArray[arrPos].selected = true;
     this.setAttribute("src", "images/green_selected.jpg");
   }
+  var seatListContent = "";
   seatArray.forEach(function(each) {
     //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
       seatListContent += (each.id.toString() + " ");
     }
 
+
   });
-  $('#seatList').text("Seats selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
+  $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
+
+
 });
 
 
@@ -127,4 +122,5 @@ function onSubmit() {
       el.setAttribute("src", "images/seatX.jpg");
     }
   });
+  $('#seatList').text("")
 }
