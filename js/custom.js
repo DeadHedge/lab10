@@ -161,6 +161,7 @@ $('.seat').on("click", function() {
     seatArray[arrPos].selected = true;
     this.setAttribute("src", "images/green_selected.jpg");
   }
+  var seatListContent=" ";
   seatArray.forEach(function(each) {
     //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
