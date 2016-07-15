@@ -1,21 +1,51 @@
+@media(max-width:1180px) {
+	.col-md-2 {
+		height:10%;
+		width:10%;
+	}
+	p {
+		font-size:2em;
+	}
+	.col-md-2 p {
+		font-size:130%;
+	}
+}
+
+@media(max-width:1179px) {
+	#theatreImage {
+	width: 760px;
+	height: 300px;
+}
+}
 @media(max-width:980px) {
 	.col-md-2 {
 		height:90px;
 		width:90px;
 		display:inline-block;
 	}
-	p {
-		font-size:2em;
+	
+	.col-md-2 p {
+		font-size:1em;
 	}
+	#theatreImage {
+	width: 750px;
+	height: 300px;
+}
+}
 @media(max-width:730px) {
 	.col-md-2 {
 		height:70px;
 		width:70px;
 		display:inline-block;
 	}
-	p {
-		font-size:2em;
+	.col-md-2 p {
+		font-size:85%;
 	}
+	#theatreImage {
+	width: 615px;
+	height: 250px;
+}
+}
 @media(max-width:620px) {
 	.col-md-2 {
 		height:60px;
@@ -27,6 +57,11 @@
 	p {
 		font-size:20px;
 	}
+	#theatreImage {
+	width: 480px;
+	height: 200px;
+}
+}
 @media(max-width:464px) {
 	.col-md-2 {
 		height:50px;
@@ -38,4 +73,8 @@
 	p {
 		font-size:20px;
 	}
+		#theatreImage {
+	width: 400px;
+	height: 150px;
+}
 }

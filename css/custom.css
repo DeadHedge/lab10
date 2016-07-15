@@ -1,12 +1,12 @@
 @font-face {
     font-family: Pokemon Solid;
-    src: url(Pokemon_Solid.ttf);
+    src: url(images/Pokemon_Solid.ttf);
 	}
 
 .col-md-2 {
 	height: 10em;
 	width: 10em;
-	background-color: blue;
+	background-color: black;
 	color: black;
 	padding: 1em;
 	margin: 1em;
@@ -15,20 +15,12 @@
 }
 
 .col-md-2 p {
-	font-size: 5em;
+	font-size: 2em;
 	text-align: center;
 	color: white;
 }
 
-@media(max-width:1180px) {
-	.col-md-2 {
-		height:10%;
-		width:10%;
-	}
-	p {
-		font-size:2em;
-	}
-}
+
 
 .page-header p
 {
@@ -43,6 +35,7 @@
     -1px 1px 0 #00F,
      1px 1px 0 #00F;
 	font-weight: bolder;
+
 }
 
 footer
@@ -59,4 +52,46 @@ footer li
 footer ul
 {
 	text-align: center;
+}
+
+#theatreImage {
+	width: 1005px;
+	height: 400px;
+}
+#background {
+  background: url(https://scontent.xx.fbcdn.net/t31.0-0/p180x540/13667729_10154334279755842_4236254203957273049_o.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#pokemonImg {
+	height:20%;
+	width:20%;
+}
+
+.container {
+	border: 5px solid black;
+	border-radius:10px;
+}
+
+h4 {
+	font-weight:normal;
+}
+
+.seat {
+	height:100%;
+	width:100%;
+}
+
+p {
+	position:absolute;
+	text-align:center;
+	padding-left:40%;
+	padding-top: 10%;
+}
+h1, h4 {
+	color: gold;
+	text-shadow: -1px -1px 0 #00F, 1px -1px 0 #00F, -1px 1px 0 #00F, 1px 1px 0 #00F;
 }

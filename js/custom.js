@@ -68,15 +68,17 @@ $(document).ready(function(){
 
 
   $("#form").hide();
-
-
-
-
-
-  var $seats = $(".col-md-2");
+  var $seats = $(".seat");
   $($seats).on("click", function() {
     $("#form").show();
-  });
+    $(this).fadeTo("fast",0.2);
+
+    $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
+      $(this).fadeTo("fast",1);
+    });
+    });
+
+
 
 });
 
