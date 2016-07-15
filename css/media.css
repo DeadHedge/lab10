@@ -11,10 +11,10 @@
 	}
 }
 
-@media(max-width:1179px) {
+@media(max-width:1210px) {
 	#theatreImage {
-	width: 760px;
-	height: 300px;
+	width: 100%;
+	height: 100%;
 }
 }
 @media(max-width:980px) {
@@ -28,8 +28,8 @@
 		font-size:1em;
 	}
 	#theatreImage {
-	width: 750px;
-	height: 300px;
+	width: 100%;
+	height: 100%;
 }
 }
 @media(max-width:730px) {

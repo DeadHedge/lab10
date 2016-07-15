@@ -83,6 +83,20 @@ $($seats).hover(function() {
 }
 );
 
+var $header = $("#header");
+$header.hover(function() {
+  $(this).animate({
+    fontSize: "80px"}, 1500)
+})
+
+var $pokemonChar = $(".pokemonChar");
+$pokemonChar.click(function() {
+  $(this).animate({
+    width: "100%",
+    height:"100%"
+  });
+});
+
 
 
 // $($navigation).hover(function() {
@@ -144,7 +158,7 @@ $('.seat').on("click", function() {
       console.log(seatListContent);
     }
   })
-  $('#seatList').text("Seat selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
+  $('#seatList').text(seatListContent).css({'color':'black',"font-size":"19px"});
 
   console.log(seatArray[id - 1].selected);
 

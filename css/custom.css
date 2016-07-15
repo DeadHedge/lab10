@@ -102,12 +102,19 @@ h1, h4 {
 }
 
 #seatList {
-	text-align:center;
-	padding-top:15px;
-	font-family: Pokemon Solid;
+	text-align: left;
+    padding-top: 3px;
+    font-family: Pokemon Solid;
+    font-weight: normal;
 }
 
 #form {
 	font-weight:bold;
 	font-size:20px;
+}
+
+.pokemonChar {
+	width: 10em;
+	height: 10em;
+	border: 4px solid;
 }
