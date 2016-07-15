@@ -60,17 +60,17 @@ $(document).ready(function(){
 // }
 
 var $seats = $(".seat");
-var $form = $("#form");
+// var $form = $("#form");
 
 $form.hide();
-$seats.click(function() {
-  $($form).show();
-  if($(this).attr("src") === "images/seat.jpg") {
-    this.setAttribute("src", "images/green_selected.jpg");
-  } else if ($(this).attr("src") === "images/green_selected.jpg"){
-    this.setAttribute("src", "images/seat.jpg");
-  };
-});
+// $seats.click(function() {
+//   $($form).show();
+//   if($(this).attr("src") === "images/seat.jpg") {
+//     this.setAttribute("src", "images/green_selected.jpg");
+//   } else if ($(this).attr("src") === "images/green_selected.jpg"){
+//     this.setAttribute("src", "images/seat.jpg");
+//   };
+// });
 
 
 
@@ -126,16 +126,23 @@ for (var i = 0; i < 24 ; i++){
 
 // add event listener for all grid elements
 $('.seat').on("click", function() {
+  var $form = $("#form");
+  $($form).show();
   var $id = $(this).siblings('p').text();
   var id = parseInt($id);
   if(seatArray[id - 1].reserved === true) {
     console.log("That seat is reserved!");
     return;
   }
+
   //Checks if seat is selected. If not, select. If so, unselect.
   if(seatArray[id - 1].selected === true) {
     seatArray[id - 1].selected = false
-  } else {seatArray[id - 1].selected = true}
+    this.setAttribute("src", "images/seat.jpg");
+  } else {
+    seatArray[id - 1].selected = true;
+    this.setAttribute("src", "images/green_selected.jpg");
+  }
   var seatListContent = "";
   seatArray.forEach(function(each) {
     if (each.selected === true) {
