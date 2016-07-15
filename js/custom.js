@@ -59,24 +59,51 @@ $(document).ready(function(){
 //   }
 // }
 
+var $seats = $(".seat");
+var $form = $("#form");
+
+$form.hide();
+$seats.click(function() {
+  $($form).show();
+  if($(this).attr("src") === "images/seat.jpg") {
+    this.src = this.src.replace("images/seat.jpg","images/seatX.jpg");
+  } else {
+    this.src = this.src.replace("images/seatX.jpg", "images/seat.jpg");
+  };
+});
 
 
 
 
+$($seats).hover(function() {
+  $(this).fadeTo("fast", 0.8);
+},
+  function() {
+  $(this).fadeTo("fast",1);
+}
+);
 
 
 
+// $($navigation).hover(function() {
+//     $(this).fadeTo("fast", 0.25); 
+//       }, function() {
+//     $(this).fadeTo("fast", 1); 
+//       }
+//       );
 
-  $("#form").hide();
-  var $seats = $(".seat");
-  $($seats).on("click", function() {
-    $("#form").show();
-    $(this).fadeTo("fast",0.2);
 
-    $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
-      $(this).fadeTo("fast",1);
-    });
-    });
+
+  // $("#form").hide();
+  // var $seats = $(".seat");
+  // $($seats).on("click", function() {
+  //   $("#form").show();
+  //   $(this).fadeTo("fast",0.2);
+
+  //   $($seats).click( function(){   //Still some problem, only fadeIn and out ONCE
+  //     $(this).fadeTo("fast",1);
+  //   });
+  //   });
 
 
 
