@@ -100,3 +100,14 @@ h1, h4 {
 	position: relative;
 
 }
+
+#seatList {
+	text-align:center;
+	padding-top:15px;
+	font-family: Pokemon Solid;
+}
+
+#form {
+	font-weight:bold;
+	font-size:20px;
+}

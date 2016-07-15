@@ -37,7 +37,6 @@ $('.seat').on("click", function() {
   var arrPos = id -1;
   //Checks if seat is reserved before making changes
   if(seatArray[arrPos].reserved === true) {
-    console.log("That seat is reserved!");
     return;
   }
   //Checks if seat selected is true. If not, sets true.
@@ -49,15 +48,13 @@ $('.seat').on("click", function() {
     seatArray[arrPos].selected = true;
     this.setAttribute("src", "images/green_selected.jpg");
   }
-  var seatListContent = "Selected Seats: ";
   seatArray.forEach(function(each) {
     //Builds list of selected seats on click based on object.selected attr
     if (each.selected === true) {
       seatListContent += (each.id.toString() + " ");
     }
   });
-  // sets list of selected seats to the list paragraph.
-  $('#seatList').text(seatListContent);
+  $('#seatList').text("Seats selected: " + seatListContent).css({'color':'black',"font-size":"27px"});
 });
 
 
