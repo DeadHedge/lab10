@@ -95,3 +95,6 @@ h1, h4 {
 	color: gold;
 	text-shadow: -1px -1px 0 #00F, 1px -1px 0 #00F, -1px 1px 0 #00F, 1px 1px 0 #00F;
 }
+#header {
+	position: relative;
+}
